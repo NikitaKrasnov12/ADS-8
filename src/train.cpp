@@ -32,7 +32,7 @@ int Train::getLength() {
   int result = 0;
   bool temp = true;
   while (temp) {
-    result = 0;  
+    result = 0;
     do {
       curCage = curCage->next;
       countOp++;
