@@ -6,7 +6,7 @@ Train::Train() {
     first = nullptr;
 }
 void Train::addCage(bool light) {
-    if (first->next == nullptr && first->prev == nullptr) {
+    if ((first->next == nullptr) && (first->prev == nullptr)) {
         first->next = new Cage;
         first->next->light = light;
         first->next->prev = first;
@@ -21,9 +21,9 @@ void Train::addCage(bool light) {
         Cage* tail = first->prev;
         tail->next = new Cage;
         tail->next->light = light;
-        first->prev = tail->next;
         tail->next->prev = tail;
         tail->next->next = first;
+        first->prev = tail->next;
     }
 }
 int Train::getLength() {
