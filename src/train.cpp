@@ -6,13 +6,13 @@ Train::Train() {
     first = nullptr;
 }
 void Train::addCage(bool light) {
-    if ((first->next == nullptr) && (first->prev == nullptr)) {
+    if ((nullptr == first->next) && (nullptr == first->prev)) {
         first->next = new Cage;
         first->next->light = light;
         first->next->prev = first;
         first->next->next = first;
         first->prev = first->next;
-    } else if (first == nullptr) {
+    } else if (nullptr == first) {
         first = new Cage;
         first->light = light;
         first->next = nullptr;
