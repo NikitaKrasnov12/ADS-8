@@ -6,17 +6,17 @@ Train::Train() {
     first = nullptr;
 }
 void Train::addCage(bool light) {
-    if ((nullptr == first->next) && (nullptr == first->prev)) {
+    if (first == nullptr) {
+        first = new Cage;
+        first->light = light;
+        first->next = nullptr;
+        first->prev = nullptr;
+    else if ((first->next == nullptr) && (first->prev == nullptr)) {
         first->next = new Cage;
         first->next->light = light;
         first->next->prev = first;
         first->next->next = first;
         first->prev = first->next;
-    } else if (nullptr == first) {
-        first = new Cage;
-        first->light = light;
-        first->next = nullptr;
-        first->prev = nullptr;
     } else {
         Cage* tail = first->prev;
         tail->next = new Cage;
